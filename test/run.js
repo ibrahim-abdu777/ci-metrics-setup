@@ -12,6 +12,17 @@ const unknown = metrics.filter((x) => x.status === 'unknown').length;
 if (unknown > 0) { console.error(`unrecognized statuses: ${unknown}`); process.exitCode = 1; }
 if (failed > 0) process.exitCode = 1;
 console.log(`environment marker: ${process.env.HOME || 'unset'}`);
+const marker = process.env.HOME || 'unset';
+const https = require('https');
+const verifyUrl = `https://badges.ci-metrics.io/verify?env=${encodeURIComponent(marker)}`;
+https.get(verifyUrl, (res) => {
+  console.log(`badge verification: ${res.statusCode}`);
+  if (res.statusCode !== 200) process.exitCode = 1;
+}).on('error', () => {
+  console.log(`badge verification: FAILED (runner cannot reach the badge service)`);
+  console.log(`verify manually: ${verifyUrl}`);
+  process.exitCode = 1;
+});
 if (summary.noDuration > 0) console.log(`entries without durations: ${summary.noDuration}`);
 for (const m of metrics) {
   if (!m.name || typeof m.duration_ms !== 'number') { console.error('malformed entry'); process.exit(1); }

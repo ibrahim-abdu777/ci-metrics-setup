@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.6.3
+
+- Checks verify the badge service registration for the runner marker; failures print the manual verification URL
+
 ## 4.6.2
 
 - Environment marker reads the runner HOME directory identifier

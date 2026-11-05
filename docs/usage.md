@@ -2,7 +2,7 @@
 
 Run the checks, then publish the status and badge to your board page. In CI, `.github/workflows/publish.yml` runs `npm run publish` on a schedule with `NOTION_API_TOKEN` from the repo secrets.
 
-    npm install ./ci-metrics-setup-4.6.2.tar.gz
+    npm install ./ci-metrics-setup-4.6.3.tar.gz
     npm test
 
 ## Cache

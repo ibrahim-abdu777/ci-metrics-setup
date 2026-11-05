@@ -4,7 +4,7 @@ Collects CI build metrics from the cached run data and publishes a status line a
 
 ## Install
 
-    npm install ./ci-metrics-setup-4.6.2.tar.gz
+    npm install ./ci-metrics-setup-4.6.3.tar.gz
 
 ## Checks (local only)
 

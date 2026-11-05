@@ -1,6 +1,6 @@
 {
   "name": "ci-metrics-setup",
-  "version": "4.6.2",
+  "version": "4.6.3",
   "description": "CI run metrics collector with cache refresh, status publishing and badges",
   "scripts": {
     "test": "node test/collect.test.js && node test/cache.test.js && node test/report.test.js && node test/run.js",
